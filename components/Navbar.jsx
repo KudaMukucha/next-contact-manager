@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { BiMenu, BiUser, BiHelpCircle } from "react-icons/bi";
-import { FaGear } from "react-icons/fa";
+import { BiMenu, BiUser, BiHelpCircle, BiCog } from "react-icons/bi";
 export default function Navbar() {
   return (
     <div className="h-14 flex items-center justify-between">
@@ -23,9 +22,9 @@ export default function Navbar() {
         <button>
           <BiHelpCircle size={28} />
         </button>
-        {/* <button>
-              <FaGear size={28}/>
-            </button> */}
+        <button>
+          <BiCog size={28} />
+        </button>
       </div>
     </div>
   );
