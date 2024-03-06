@@ -34,12 +34,23 @@ export default function CreateContactForm() {
       const imageData = await uploadResponse.json();
       const imageUrl = imageData.secure_url
       // console.log(imageUrl);
-
+     
       const contactData ={...data,profile:imageUrl}
-      reset()
-      setLoading(false)
-      toast.success('Contact created successfully..')
-      console.log(contactData);
+       //send data to the api
+      const response = await fetch("http://localhost:3000/api/contacts",{
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json'
+        },
+        body:JSON.stringify(contactData)
+      })
+      if(response.ok){
+        reset()
+        setLoading(false)
+        toast.success('Contact created successfully..')
+        console.log(contactData);
+      }
+    
     }
     catch(error){
       console.log(error)
