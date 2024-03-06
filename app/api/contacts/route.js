@@ -31,3 +31,20 @@ export async function POST(request){
         })
     }
 }
+
+//getting all records
+export async function GET(){
+    try {
+        const contacts = await db.contact.findMany()
+        return NextResponse.json(contacts)
+    } catch (error) {
+        console.log('Error while fetching contacts...',error)
+        return NextResponse.json({
+            message:'Failed to fetch contacts',
+            error: error.message
+        },{
+            status:500
+        })
+    }
+}
+
